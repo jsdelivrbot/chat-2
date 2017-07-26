@@ -101,17 +101,6 @@ var mask_data = function(id, str)
 		console.log("Query does not have Serial Number");
 	  }
 	  
-	  if (hasBan(masked_string))
-	  {
-		  var token = masked_string.match(ban_pattern);
-		  masked_string = mask_string(masked_string, ban_pattern, ban_mask);
-		  obj[ban_mask] = token;
-	  }
-	  else
-	  {
-		console.log("Query does not have Ban");
-	  }
-	  
 	  if (hasPhone(masked_string))
 	  {
 		  var token = masked_string.match(phone_pattern);
@@ -121,6 +110,17 @@ var mask_data = function(id, str)
 	  else
 	  {
 		console.log("Query does not have Phone");
+	  }
+	  
+	  if (hasBan(masked_string))
+	  {
+		  var token = masked_string.match(ban_pattern);
+		  masked_string = mask_string(masked_string, ban_pattern, ban_mask);
+		  obj[ban_mask] = token;
+	  }
+	  else
+	  {
+		console.log("Query does not have Ban");
 	  }
 	  
 	  if (Object.keys(obj).length === 0 && obj.constructor === Object)
